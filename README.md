@@ -44,7 +44,7 @@ This project is an implementation of the classic **Mastermind** game using **Obj
 ## 🛠️ Project Structure
 
 - **Classes**:
-  - `Peg`: Represents an individual peg.
+  - `Pion`: Represents an individual peg.
   - `Combination`: Manages a sequence of pegs (both attempts and the secret combination).
   - `Feedback`: Provides feedback for an attempt.
   - `Board`: Manages the game state and visual representation.
