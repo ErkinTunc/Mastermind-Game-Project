@@ -57,3 +57,23 @@ This project is an implementation of the classic **Mastermind** game using **Obj
 1. Clone the repository:
    ```bash
    git clone <repository_url>
+
+2. Navigate to the project directory
+   ```bash
+   cd mastermind-game
+
+3. Compile the project using a Java IDE or command-line tools (e.g., javac).
+
+4. Run the main program:
+   ```bash
+   java Main
+
+## 🔮 Future Improvements
+- 🧠 Add difficulty levels for the AI player.
+- ✨ Enhance the graphical interface with additional features.
+- 🌐 Implement online multiplayer support.
+
+##🤝 Contributing
+Contributions are welcome! Feel free to submit pull requests or report issues.
+
+
