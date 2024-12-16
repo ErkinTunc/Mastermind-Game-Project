@@ -73,7 +73,7 @@ This project is an implementation of the classic **Mastermind** game using **Obj
 - ✨ Enhance the graphical interface with additional features.
 - 🌐 Implement online multiplayer support.
 
-##🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Feel free to submit pull requests or report issues.
 
 
