@@ -1,79 +1,116 @@
-# 🎮 Mastermind Game Project
+# 🎮 Mastermind Game
 
-This project is an implementation of the classic **Mastermind** game using **Object-Oriented Programming (OOP)**. The game challenges players to guess a secret combination of colored pegs chosen by an opponent within a limited number of attempts.
+## ✨ Overview
+This project is a digital version of the classic **Mastermind** game. Players attempt to guess a secret combination of colored pegs within a limited number of attempts. After each guess, the game provides feedback on the number of correct colors in the correct positions and the number of correct colors in incorrect positions.
 
-## ✨ Features
+## 🌟 Features
+- **Customizable settings:** Configure the number of pegs, colors, and attempts to suit your desired difficulty.
+- **Game modes:** Play in single-player, multiplayer, or with an optional automatic player (AI).
+- **Save/Load functionality:** Save the current game state to continue later.
+- **Intelligent AI:** The automatic player can make strategic guesses based on previous attempts.
 
-### 🌟 Core Features
-1. **Customizable Game Settings**:
-   - Number of pegs (4 or 5).
-   - Number of colors (6 to 8).
-   - Allow or disallow repeated colors.
-   - Number of allowed attempts (10 or 12).
-2. **Feedback on Attempts**:
-   - Indicates the number of pegs with the correct color in the correct position.
-   - Indicates the number of pegs with the correct color in the wrong position.
+## 🏗️ Classes
 
-### 🚀 Additional Features
-3. **Board Display**:
-   - Terminal-based board visualization.
-   - Uses Unicode symbols and ANSI escape codes for color representation.
-4. **Attempt Validation**:
-   - A method to validate attempts and return feedback for the player.
-5. **Main Game Loop**:
-   - A fully interactive program where players can:
-     - Set game parameters.
-     - Make attempts to guess the combination.
-     - View the current game state.
-   - The secret combination is randomly generated.
-6. **Multiplayer Mode**:
-   - Players take turns making guesses.
-   - Points are awarded based on the number of remaining attempts after a successful guess.
-   - The game supports multiple rounds, with total scores tracked.
-7. **Save and Load Game State**:
-   - Save the current game state to a text file.
-   - Load a previously saved game to continue playing.
+### **🎲 Game**
+The core class that manages the game flow.
+- **Attributes**: Number of pegs, colors, attempts, and the secret combination.
+- **Methods**:
+  - `start()`: Initializes the game.
+  - `play()`: Handles gameplay logic.
+  - `save(path)`: Saves the current game state.
+  - `load(path)`: Loads a saved game state.
 
-### 🎁 Bonus Features
-8. **Automated Player**:
-   - Play against an AI player.
-9. **Enhanced User Interface**:
-   - Text-based User Interface (TUI) using libraries like Lanterna.
-   - Optional graphical user interface (GUI) using Java Swing.
+### **🧑‍🤝‍🧑 Player**
+Represents a player in the game.
+- **Attributes**: Player's name, score, and remaining attempts.
+- **Methods**:
+  - `makeAttempt()`: Allows the player to guess the combination.
+  - `updateScore(score)`: Updates the player's score.
 
-## 🛠️ Project Structure
+### **📋 Board**
+Tracks the history of attempts and their results.
+- **Attributes**: List of all attempts and the maximum allowed attempts.
+- **Methods**:
+  - `addAttempt(attempt)`: Adds a new attempt to the board.
+  - `displayBoard()`: Displays all previous attempts and feedback.
 
-- **Classes**:
-  - `Pion`: Represents an individual peg.
-  - `Combination`: Manages a sequence of pegs (both attempts and the secret combination).
-  - `Feedback`: Provides feedback for an attempt.
-  - `Board`: Manages the game state and visual representation.
-  - `Game`: Orchestrates the game logic and main loop.
-- **Utilities**:
-  - `save(Path)` and `load(Path)` methods for saving/loading game state.
+### **🧩 Combination**
+Represents a sequence of pegs in the game.
+- **Attributes**: A list of pins (pegs) representing the combination.
+- **Methods**:
+  - `generate(numberOfPins, numberOfColors)`: Generates a random combination.
+  - `validate(attempt)`: Compares the attempt against the secret combination.
+  - `equals(other)`: Checks if two combinations are identical.
 
-## ▶️ How to Run
+### **📍 Pin**
+Represents a single peg in the combination.
+- **Attributes**: Color and position of the peg.
+- **Methods**:
+  - `getColor()`: Returns the color of the pin.
+
+### **📊 Attempt**
+Stores the player's guessed combination and the resulting feedback.
+- **Attributes**: The guessed combination and the feedback result.
+- **Methods**:
+  - `checkResult(secretCombination)`: Compares the guessed combination to the secret one.
+
+### **✅ AttemptResult**
+Contains the feedback for a player's guess.
+- **Attributes**:
+  - Number of pegs with correct color and position.
+  - Number of pegs with correct color but wrong position.
+- **Methods**:
+  - `isSecretFound()`: Returns true if the guess matches the secret combination.
+
+### **🤖 AutomaticPlayer** (Optional)
+An AI player that can generate intelligent guesses.
+- **Methods**:
+  - `generateIntelligentAttempt(previousAttempts)`: Uses previous feedback to make a strategic guess.
+
+### **🎨 Color (Enum)**
+An enumeration of possible peg colors (e.g., RED, BLUE, GREEN, etc.).
+
+## ⚙️ Installation
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/yourusername/mastermind-game.git
 
-2. Navigate to the project directory
+2. Navigate to the project directory:
    ```bash
    cd mastermind-game
-
-3. Compile the project using a Java IDE or command-line tools (e.g., javac).
-
-4. Run the main program:
+   
+3. Compile and run the game:
    ```bash
-   java Main
+   javac MasterMind.java
+   java MasterMind
 
-## 🔮 Future Improvements
-- 🧠 Add difficulty levels for the AI player.
-- ✨ Enhance the graphical interface with additional features.
-- 🌐 Implement online multiplayer support.
+## 🕹️ How to Play
+
+1. Setup:
+   - Configure the number of pegs, colors, and attempts.
+   - Decide on single-player, multiplayer, or AI mode.
+2. Gameplay:
+   - For each turn, make a guess for the secret combination.
+3. Receive feedback on your guess:
+   - The number of pegs with the correct color and position.
+   - The number of pegs with the correct color but wrong position.
+4. Win Condition:
+   - Find the exact combination within the allowed attempts.
+  
+## 📖 Example
+
+### Initial Setup
+   - Number of pegs: 4
+   - Available colors: Red, Blue, Green, Yellow
+   -Maximum attempts: 10
+### Feedback Example
+   - Secret combination: [Red, Blue, Green, Yellow]
+   - Player's guess: [Red, Green, Blue, Yellow]
+   - Feedback:
+      - 2 pegs with correct color and position.
+      - 2 pegs with correct color but wrong position.
 
 ## 🤝 Contributing
-Contributions are welcome! Feel free to submit pull requests or report issues.
-
+Feel free to fork this repository, suggest changes, or submit pull requests to improve the game!
 
