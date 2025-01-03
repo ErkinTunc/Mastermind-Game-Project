@@ -13,59 +13,28 @@ This project is a digital version of the classic **Mastermind** game. Players at
 
 ### **🎲 Game**
 The core class that manages the game flow.
-- **Attributes**: Number of pegs, colors, attempts, and the secret combination.
-- **Methods**:
-  - `start()`: Initializes the game.
-  - `play()`: Handles gameplay logic.
-  - `save(path)`: Saves the current game state.
-  - `load(path)`: Loads a saved game state.
 
 ### **🧑‍🤝‍🧑 Player**
 Represents a player in the game.
-- **Attributes**: Player's name, score, and remaining attempts.
-- **Methods**:
-  - `makeAttempt()`: Allows the player to guess the combination.
-  - `updateScore(score)`: Updates the player's score.
 
 ### **📋 Board**
 Tracks the history of attempts and their results.
-- **Attributes**: List of all attempts and the maximum allowed attempts.
-- **Methods**:
-  - `addAttempt(attempt)`: Adds a new attempt to the board.
-  - `displayBoard()`: Displays all previous attempts and feedback.
 
 ### **🧩 Combination**
 Represents a sequence of pegs in the game.
-- **Attributes**: A list of pins (pegs) representing the combination.
-- **Methods**:
-  - `generate(numberOfPins, numberOfColors)`: Generates a random combination.
-  - `validate(attempt)`: Compares the attempt against the secret combination.
-  - `equals(other)`: Checks if two combinations are identical.
 
-### **📍 Pin**
+
+### **📍 Pion
 Represents a single peg in the combination.
-- **Attributes**: Color and position of the peg.
-- **Methods**:
-  - `getColor()`: Returns the color of the pin.
 
 ### **📊 Attempt**
 Stores the player's guessed combination and the resulting feedback.
-- **Attributes**: The guessed combination and the feedback result.
-- **Methods**:
-  - `checkResult(secretCombination)`: Compares the guessed combination to the secret one.
 
 ### **✅ AttemptResult**
 Contains the feedback for a player's guess.
-- **Attributes**:
-  - Number of pegs with correct color and position.
-  - Number of pegs with correct color but wrong position.
-- **Methods**:
-  - `isSecretFound()`: Returns true if the guess matches the secret combination.
 
 ### **🤖 AutomaticPlayer** (Optional)
 An AI player that can generate intelligent guesses.
-- **Methods**:
-  - `generateIntelligentAttempt(previousAttempts)`: Uses previous feedback to make a strategic guess.
 
 ### **🎨 Color (Enum)**
 An enumeration of possible peg colors (e.g., RED, BLUE, GREEN, etc.).
