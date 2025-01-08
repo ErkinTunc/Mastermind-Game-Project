@@ -1,0 +1,76 @@
+%==============Packages==================
+\documentclass[french,a4paper]{article} % la classe du document
+\usepackage[utf8]{inputenc} % encodage des caractères
+\usepackage[T1]{fontenc} % encodage de la fonte
+\usepackage[french]{babel} % aide de langage français 
+\usepackage{titling} % pour le mis en forme
+\usepackage[margin=2.5cm]{geometry}
+
+%==============Formatting==================
+
+\setlength{\droptitle}{-10em}
+
+
+
+%==============UML==================
+\usepackage[simplified]{pgf-umlcd} % la version simplified efface des espaces inutiles
+
+%=========IntroductionPage===========
+
+
+\title{Mini-projet POO}
+\author{Erkin Tunc Boya}
+\date{Avril 2025}
+
+
+%============DOCUMENT================
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Dans ce mini-projet, nous proposons la réalisation d'un jeu de type \texttt{"Master Mind"}, implémenté en \texttt{Java}. Le concept de ce jeu consiste à deviner une combinaison de pions de couleur, choisie par un adversaire, en un minimum de tentatives. Les paramètres du jeu, tels que le nombre de pions, le nombre de couleurs, la possibilité de répéter les couleurs, ainsi que le nombre de tentatives autorisées, peuvent être ajustés selon différentes versions et niveaux de difficulté.
+
+
+\section{Structure}
+
+\begin{enumerate}
+    \item Pion : Il représente la couleur et la position de chaque pion. 
+    \item Combinaison :  Il représente à la fois une combinaison secrète et des prédictions.
+    \item Result : Cela représente le résultat d’une de ses prédictions.
+    \item Plateau : Gère et traite l’état du plateau de jeu.
+    \item Game : Fournit le contrôle principal du jeu.
+\end{enumerate}
+
+\subsection{UML}
+
+
+ 
+
+\noindent Le class Game est dépendant aux Combination et Plateau.\\
+Le class Combination est dépendant aux Pion et Result.\\
+Le class Plateau est dépendant aux Pion.\\
+Aussi il y a une class de couleur qui contient les couleurs des écritures.
+
+\section{Affichage}
+L'affichage est fait par le terminal avec plusieurs méthodes et des codes dans le \texttt{main()} et \texttt{Color}. Le class Color contient des codes ANSI.
+
+\section{Validation}
+La méthode \texttt{checkGuess(pion guess)} de la class Combination nous permet de tester la
+validité d’une tentative, et retourne un objet représentant le résultat.
+
+\section{Programme Principal}
+J'ai divisé le programme principal "\texttt{main()}" en trois parties.
+\begin{enumerate}
+	\item Play
+	\item Options
+	\item Quit
+\end{enumerate} 
+
+\section{Multiplayer}
+Il ya un partie de multiplayer que peut etre ouvert sur option mais Cela n'est pas parfait. Ajouter quelque methods pour le deuxieme joueur ils sont le meme methode neonmoins il y a un peu de differance.
+
+\section{Sauvegarde et restauration}
+Dans cette jeu il n'y a pas de Sauvegarde et restauration ...
+
+\end{document}
