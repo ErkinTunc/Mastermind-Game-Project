@@ -1,85 +1,120 @@
-# 🎮 Mastermind Game
+# MasterMind Game
 
-## ✨ Overview
-This project is a digital version of the classic **Mastermind** game. Players attempt to guess a secret combination of colored pegs within a limited number of attempts. After each guess, the game provides feedback on the number of correct colors in the correct positions and the number of correct colors in incorrect positions.
+A Java implementation of the classic MasterMind board game where players try to guess a secret combination of colored pins.
 
-## 🌟 Features
-- **Customizable settings:** Configure the number of pegs, colors, and attempts to suit your desired difficulty.
-- **Game modes:** Play in single-player, multiplayer, or with an optional automatic player (AI).
-- **Save/Load functionality:** Save the current game state to continue later.
-- **Intelligent AI:** The automatic player can make strategic guesses based on previous attempts.
+## Overview
 
-## 🏗️ Classes
+This implementation of MasterMind allows players to:
+- Play in single-player or multiplayer mode
+- Customize game parameters (number of pins, colors, and attempts)
+- Receive detailed or summary feedback on each guess
+- Earn points based on remaining attempts
 
-### **🎲 Game**
-The core class that manages the game flow.
+## Game Structure
 
-### **🧑‍🤝‍🧑 Player**
-Represents a player in the game.
+The project is organized into several key classes:
 
-### **📋 Board**
-Tracks the history of attempts and their results.
+- `Game`: Main game controller managing game flow and player interactions
+- `Pion`: Represents individual colored pins and their positions
+- `Combination`: Handles both secret combinations and player guesses
+- `Result`: Processes and stores the outcome of each guess
+- `Plateau` (Board): Manages the game board state
+- `Color`: Contains ANSI color codes for terminal display
 
-### **🧩 Combination**
-Represents a sequence of pegs in the game.
+## Features
 
+### Game Modes
+- **Single Player**: Challenge yourself against the computer
+- **Multiplayer**: Compete with other players (experimental feature)
 
-### **📍 Pion
-Represents a single peg in the combination.
+### Customizable Parameters
+- Number of pins in the combination
+- Number of available colors
+- Maximum attempts allowed
+- Detailed or summary feedback mode
 
-### **📊 Attempt**
-Stores the player's guessed combination and the resulting feedback.
+### Scoring System
+- Points awarded based on remaining attempts
+- 10 points per remaining attempt
+- Leaderboard display at game end
 
-### **✅ AttemptResult**
-Contains the feedback for a player's guess.
+### Feedback Systems
+Two feedback modes are available:
 
-### **🤖 AutomaticPlayer** (Optional)
-An AI player that can generate intelligent guesses.
+1. **Detailed Feedback**
+   - Shows correct positions
+   - Indicates incorrect positions
+   - Displays color-specific information
 
-### **🎨 Color (Enum)**
-An enumeration of possible peg colors (e.g., RED, BLUE, GREEN, etc.).
+2. **Summary Feedback**
+   - Number of correct color and position matches
+   - Number of correct colors in wrong positions
 
-## ⚙️ Installation
+## Technical Implementation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/mastermind-game.git
+### Class Dependencies
+```
+Game
+├── Combination
+│   ├── Pion
+│   └── Result
+└── Plateau
+    └── Pion
+```
 
-2. Navigate to the project directory:
-   ```bash
-   cd mastermind-game
-   
-3. Compile and run the game:
-   ```bash
-   javac MasterMind.java
-   java MasterMind
+### Input Validation
+- Validates all game parameters
+- Ensures at least one player is present
+- Checks for valid number of attempts, pins, and colors
 
-## 🕹️ How to Play
+### Error Handling
+- Comprehensive parameter validation
+- Illegal argument checking
+- Safe game state management
 
-1. Setup:
-   - Configure the number of pegs, colors, and attempts.
-   - Decide on single-player, multiplayer, or AI mode.
-2. Gameplay:
-   - For each turn, make a guess for the secret combination.
-3. Receive feedback on your guess:
-   - The number of pegs with the correct color and position.
-   - The number of pegs with the correct color but wrong position.
-4. Win Condition:
-   - Find the exact combination within the allowed attempts.
-  
-## 📖 Example
+## Installation
 
-### Initial Setup
-   - Number of pegs: 4
-   - Available colors: Red, Blue, Green, Yellow
-   -Maximum attempts: 10
-### Feedback Example
-   - Secret combination: [Red, Blue, Green, Yellow]
-   - Player's guess: [Red, Green, Blue, Yellow]
-   - Feedback:
-      - 2 pegs with correct color and position.
-      - 2 pegs with correct color but wrong position.
+1. Clone the repository
+2. Compile Java files
+3. Run the main class
 
-## 🤝 Contributing
-Feel free to fork this repository, suggest changes, or submit pull requests to improve the game!
+## Usage
 
+Basic game start:
+```java
+Player player = new Player("Player 1");
+Game game = new Game(player, 10, 4, 6, false);
+game.start();
+```
+
+Multiplayer mode:
+```java
+List<Player> players = Arrays.asList(
+    new Player("Player 1"),
+    new Player("Player 2")
+);
+Game game = new Game(players, 10, 4, 6, false);
+game.start();
+```
+
+## Current Limitations
+
+- Multiplayer mode is experimental and needs improvement
+- No save/restore functionality
+- Terminal-based interface only
+
+## Future Improvements
+
+- Enhanced multiplayer functionality
+- Save/load game state
+- Graphical user interface
+- Additional game modes
+- Network play support
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## License
+
+[License information not provided in source documents]
